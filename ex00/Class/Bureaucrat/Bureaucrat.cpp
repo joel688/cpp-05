@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:52:31 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/16 18:25:54 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:57:27 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-	this->name = "Bureaucrat";
+	this->name = "Undefined name";
 	this->grade = 150;
 	return;
 }
@@ -25,6 +25,16 @@ Bureaucrat::Bureaucrat(std::string name)
 {
 	this->name = name;
 	this->grade = 150;
+	return;
+}
+
+Bureaucrat::Bureaucrat(int grade)
+{
+	this->name = "Undefined name";
+	if(IsValidGrade(grade))
+		this->grade = grade;
+	else
+		throw std::cout<<;
 	return;
 }
 
@@ -73,7 +83,7 @@ int			Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::operator<<(const Bureaucrat)
 {
-	std::cout << this->name << ", bureaucrat grade " << this->grade << std::endl;
+	std::cout << this->getName() << ", bureaucrat grade " << this->getGrade() << std::endl;
 	return;
 }
 
