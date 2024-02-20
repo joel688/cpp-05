@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:52:31 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/19 14:57:27 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:54:48 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,31 @@
 
 Bureaucrat::Bureaucrat()
 {
-	this->name = "Undefined name";
-	this->grade = 150;
+	SetName("Undefined name");
+	SetGrade(LOWEST);
 	return;
 }
 
 Bureaucrat::Bureaucrat(std::string name)
 {
-	this->name = name;
-	this->grade = 150;
+	SetName(name);
+	SetGrade(LOWEST);
 	return;
 }
 
 Bureaucrat::Bureaucrat(int grade)
 {
-	this->name = "Undefined name";
+	SetName("Undefined name");
 	if(IsValidGrade(grade))
-		this->grade = grade;
-	else
-		throw std::cout<<;
+		SetGrade(grade);
 	return;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
-	this->name = name;
-	this->grade = grade;
+	SetName(name);
+	if(IsValidGrade(grade))
+		SetGrade(grade);
 	return;
 }
 
@@ -62,8 +61,7 @@ void	Bureaucrat::SetName(std::string name)
 
 void	Bureaucrat::SetGrade(int grade)
 {
-	if(IsValidGrade(grade))
-		this->grade = grade;
+	this->grade = grade;
 	return;
 }
 
@@ -81,43 +79,49 @@ int			Bureaucrat::getGrade(void) const
 
 // ----------Operators_Overloaders----------
 
-void	Bureaucrat::operator<<(const Bureaucrat)
+std::ostream & operator<<(std::ostream & o, Bureaucrat const & src)
 {
-	std::cout << this->getName() << ", bureaucrat grade " << this->getGrade() << std::endl;
-	return;
+	o << src.getName() << ", bureaucrat grade " << src.getGrade() << "." << std::endl;
+	return o;
 }
 
 // ----------Members_Functions----------
 
 void	Bureaucrat::IncreaseGrade(void)
 {
+	std::cout << "Increasing Grade" << std::endl;
 	if(IsValidGrade(this->grade - 1))
-		this->grade--;
+		SetGrade(this->grade - 1);
 	return;
 }
 
 void	Bureaucrat::DecreaseGrade(void)
 {
+	std::cout << "Decreasing Grade" << std::endl;
 	if(IsValidGrade(this->grade + 1))
-		this->grade++;
+		SetGrade(this->grade + 1);
 	return;
 }
 
 bool	Bureaucrat::IsValidGrade(int grade) const
 {
-	if(grade < 1 || grade > 150)
-		return 0;
-	return 1;
+	if(grade >= HIGHEST && grade <= LOWEST)
+		return 1;
+	else if (grade < HIGHEST)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > LOWEST)
+		throw Bureaucrat::GradeTooLowException();
+	return 0;
 }
 
-void	Bureaucrat::GradeTooHighException(void)
+const char *Bureaucrat::GradeTooHighException::msg() const throw()
 {
-	std::cout << "Grade too high!" << std::endl;
-	return;
+	return ("Grade too high!");
 }
 
-void	Bureaucrat::GradeTooLowException(void)
+const char *Bureaucrat::GradeTooLowException::msg() const throw()
 {
-	std::cout << "Grade too low!" << std::endl;
-	return;
+	return ("Grade too low!");
 }
+
+// ----------Non_Members_Functions----------
