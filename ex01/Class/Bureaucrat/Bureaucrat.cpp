@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:52:31 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/20 15:54:48 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:26:08 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,34 @@
 
 // ----------Constructors----------
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("Undefined name")
 {
-	SetName("Undefined name");
 	SetGrade(LOWEST);
 	return;
 }
 
-Bureaucrat::Bureaucrat(std::string name)
+Bureaucrat::Bureaucrat(std::string name) : name(name)
 {
-	SetName(name);
 	SetGrade(LOWEST);
 	return;
 }
 
-Bureaucrat::Bureaucrat(int grade)
+Bureaucrat::Bureaucrat(int grade) : name("Undefined name")
 {
-	SetName("Undefined name");
 	if(IsValidGrade(grade))
 		SetGrade(grade);
 	return;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-	SetName(name);
 	if(IsValidGrade(grade))
 		SetGrade(grade);
+	return;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : name(src.name), grade(src.grade)
+{
 	return;
 }
 
@@ -52,12 +53,6 @@ Bureaucrat::~Bureaucrat()
 }
 
 // ----------Setters----------
-
-void	Bureaucrat::SetName(std::string name)
-{
-	this->name = name;
-	return;
-}
 
 void	Bureaucrat::SetGrade(int grade)
 {
@@ -83,6 +78,12 @@ std::ostream & operator<<(std::ostream & o, Bureaucrat const & src)
 {
 	o << src.getName() << ", bureaucrat grade " << src.getGrade() << "." << std::endl;
 	return o;
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
+{
+	this->grade = src.grade;
+	return (*this);
 }
 
 // ----------Members_Functions----------
@@ -114,12 +115,12 @@ bool	Bureaucrat::IsValidGrade(int grade) const
 	return 0;
 }
 
-const char *Bureaucrat::GradeTooHighException::msg() const throw()
+const std::string Bureaucrat::GradeTooHighException::msg() const throw()
 {
 	return ("Grade too high!");
 }
 
-const char *Bureaucrat::GradeTooLowException::msg() const throw()
+const std::string Bureaucrat::GradeTooLowException::msg() const throw()
 {
 	return ("Grade too low!");
 }

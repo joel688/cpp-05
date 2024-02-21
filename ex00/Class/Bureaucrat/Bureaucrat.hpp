@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:17 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/21 19:48:50 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:30:22 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Bureaucrat
 		int					getGrade(void) const;
 		void				IncreaseGrade(void);
 		void				DecreaseGrade(void);
+		Bureaucrat& operator=(const Bureaucrat& src);
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -50,5 +51,7 @@ class Bureaucrat
 		};
 };
 
-	std::ostream & operator<<(std::ostream & o, Bureaucrat const & src);
+		std::ostream & operator<<(std::ostream & o, Bureaucrat const & src);
+
+
 #endif

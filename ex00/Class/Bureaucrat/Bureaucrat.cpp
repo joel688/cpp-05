@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:52:31 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/21 19:49:29 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:26:08 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &src) : name(src.name), grade(src.grade)
 {
 	return;
 }
+
 // ----------Deconstructors----------
 
 Bureaucrat::~Bureaucrat()
@@ -77,6 +78,12 @@ std::ostream & operator<<(std::ostream & o, Bureaucrat const & src)
 {
 	o << src.getName() << ", bureaucrat grade " << src.getGrade() << "." << std::endl;
 	return o;
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
+{
+	this->grade = src.grade;
+	return (*this);
 }
 
 // ----------Members_Functions----------
