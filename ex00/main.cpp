@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/21 21:33:04 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/22 14:45:38 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 	try
 	{
 		Bureaucrat a;
-		Bureaucrat y(a);
+		Bureaucrat y = a;
 		std::cout << y;
 		std::cout << std::endl << "--------------------------------" << std::endl;
 		std::cout << a;
