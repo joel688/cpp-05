@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:53 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/21 21:40:32 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:23:45 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 #include <iostream>
 #include "../Bureaucrat/Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {

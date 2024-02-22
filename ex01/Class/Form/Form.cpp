@@ -6,11 +6,12 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:39 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/21 21:43:42 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:40:27 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Form.hpp"
+#include "Form.hpp"
+#include "../Bureaucrat/Bureaucrat.hpp"
 
 // ----------Constructors----------
 
@@ -86,7 +87,10 @@ Form& Form::operator=(const Form& src)
 void	Form::beSigned(Bureaucrat bureaucrat)
 {
 	if(bureaucrat.getGrade() <= this->_GradeToSignIt)
+	{
 		this->_isItSigned = true;
+		bureaucrat.signForm(bureaucrat, *this);
+	}
 	else
 		throw Form::GradeTooLowException();
 	return;
