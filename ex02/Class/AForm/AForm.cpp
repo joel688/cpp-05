@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:39 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 15:48:18 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:53:53 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,16 @@ const std::string AForm::GradeTooLowException::msg() const throw()
 const std::string AForm::NotSignedException::msg() const throw()
 {
 	return ("Form not signed.");
+}
+
+const std::string AForm::NotRobotomized::msg() const throw()
+{
+	return ("Robotomization failed.");
+}
+
+const std::string AForm::ShrubberyCreationForm::msg() const throw()
+{
+	return ("Cannot plant three here.");
 }
 // ----------Non_Members_Functions----------
 

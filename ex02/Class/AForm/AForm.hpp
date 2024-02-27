@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:53 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 16:32:08 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:53:12 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,17 @@ class AForm
 				public:
 					const std::string msg() const throw();
 			};
+			class	NotRobotomized : public std::exception
+			{
+				public:
+					const std::string msg() const throw();
+			};
+			class	ShrubberyCreationForm : public std::exception
+			{
+				public:
+					const std::string msg() const throw();
+			};
+
 };
 
 	std::ostream & operator<<(std::ostream & o, AForm const & src);
