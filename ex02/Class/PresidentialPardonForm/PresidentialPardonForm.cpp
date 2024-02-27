@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 17:23:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 15:54:34 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:33:03 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,15 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 // ----------Members_Functions----------
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor)
+int PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if(this->getIsItSigned() == 0)
-	{
 		throw AForm::NotSignedException();
-	}
 	if(executor.getGrade() > this->getGradeToExecuteIt())
-	{
 		throw AForm::GradeTooLowException();
-	}
 	else
-	{
-		std::cout << "Informs that " << this->getTarget() << "has been pardoned by Zaphod Beeblebox" << std::endl;
-	}
+		std::cout << "Informs that " << this->getTarget() << " has been pardoned by Zaphod Beeblebox" << std::endl;
+	return 1;
 }
 
 // ----------Non_Members_Functions----------

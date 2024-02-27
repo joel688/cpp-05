@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 15:53:17 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:35:04 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 		std::cout << a;
 		a.IncreaseGrade();
 		p.beSigned(a);
-		p.execute(a);
+		a.executeForm(p);
 	}
 	catch (AForm::GradeTooLowException & e)
 	{
