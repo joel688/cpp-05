@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:39 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/23 11:41:11 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:48:18 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,38 @@
 
 // ----------Constructors----------
 
-Form::Form() : _name("Undefined name"), _GradeToSignIt(LOWEST), _GradeToExecuteIt(LOWEST)
+AForm::AForm() : _name("Undefined name"), _GradeToSignIt(LOWEST), _GradeToExecuteIt(LOWEST)
 {
 	_isItSigned = false;
 	return;
 }
 
-Form::Form(std::string name, int gradetosignit, int gradetoexecuteit) : _name(name), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit)
+AForm::AForm(std::string name, int gradetosignit, int gradetoexecuteit) : _name(name), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit)
 {
 	_isItSigned = false;
 	return;
 }
 
-Form::Form(int gradetosignit, int gradetoexecuteit) : _name("Undefined name"), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit)
+AForm::AForm(std::string name, int gradetosignit, int gradetoexecuteit, std::string target) : _name(name), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit), _target(target)
 {
 	_isItSigned = false;
 	return;
 }
 
-Form::Form(const Form &src) : _name(src._name), _isItSigned(src._isItSigned), _GradeToSignIt(src._GradeToSignIt), _GradeToExecuteIt(src._GradeToExecuteIt)
+AForm::AForm(int gradetosignit, int gradetoexecuteit) : _name("Undefined name"), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit)
+{
+	_isItSigned = false;
+	return;
+}
+
+AForm::AForm(const AForm &src) : _name(src._name), _isItSigned(src._isItSigned), _GradeToSignIt(src._GradeToSignIt), _GradeToExecuteIt(src._GradeToExecuteIt)
 {
 	return;
 }
 
 // ----------Deconstructors----------
 
-Form::~Form()
+AForm::~AForm()
 {
 	return;
 }
@@ -49,42 +55,46 @@ Form::~Form()
 
 // ----------Getters----------
 
-const std::string Form::getName(void) const
+const std::string AForm::getName(void) const
 {
 	return(this->_name);
 }
 
-int Form::getGradeToSignIt(void) const
+int AForm::getGradeToSignIt(void) const
 {
 	return(this->_GradeToSignIt);
 }
 
-int Form::getGradeToExecuteIt(void) const
+int AForm::getGradeToExecuteIt(void) const
 {
 	return(this->_GradeToExecuteIt);
 }
 
-bool Form::getIsItSigned(void) const
+bool AForm::getIsItSigned(void) const
 {
 	return(this->_isItSigned);
 }
 
+const std::string	AForm::getTarget(void) const
+{
+	return(this->_target);
+}
 // ----------Operators_Overloaders----------
 
-std::ostream & operator<<(std::ostream & o, Form const &src)
+std::ostream & operator<<(std::ostream & o, AForm const &src)
 {
 	o << src.getName() << ", form is signed = " << src.getIsItSigned() << ", grade to be signed = " << src.getGradeToSignIt() << ", grade to be executed = " << src.getGradeToExecuteIt() <<std::endl;
 	return o;
 }
 
-Form& Form::operator=(const Form& src)
+AForm& AForm::operator=(const AForm& src)
 {
 	this->_isItSigned = src._isItSigned;
 	return *this;
 }
 // ----------Members_Functions----------
 
-void	Form::beSigned(Bureaucrat bureaucrat)
+void	AForm::beSigned(Bureaucrat bureaucrat)
 {
 	if(bureaucrat.getGrade() <= this->_GradeToSignIt)
 	{
@@ -92,19 +102,23 @@ void	Form::beSigned(Bureaucrat bureaucrat)
 		bureaucrat.signForm(bureaucrat, *this);
 	}
 	else
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	return;
 }
 
-const std::string Form::GradeTooHighException::msg() const throw()
+const std::string AForm::GradeTooHighException::msg() const throw()
 {
-	return ("Grade too high!");
+	return ("Grade too high.");
 }
 
-const std::string Form::GradeTooLowException::msg() const throw()
+const std::string AForm::GradeTooLowException::msg() const throw()
 {
-	return ("Grade too low!");
+	return ("Grade too low.");
 }
 
+const std::string AForm::NotSignedException::msg() const throw()
+{
+	return ("Form not signed.");
+}
 // ----------Non_Members_Functions----------
 

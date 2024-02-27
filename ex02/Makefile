@@ -6,6 +6,7 @@ CXXFLAGS	=		-Wall -Wextra -Werror -std=c++98 -g3
 SRCS		=		main.cpp\
 					./Class/Bureaucrat/Bureaucrat.cpp\
 					./Class/AForm/AForm.cpp\
+					./Class/PresidentialPardonForm/PresidentialPardonForm.cpp\
 
 OBJS		=		$(SRCS:.cpp=.o)
 

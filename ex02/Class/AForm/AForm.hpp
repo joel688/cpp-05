@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:53 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/23 11:40:41 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:47:32 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,32 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const		std::string _name;
 		bool		_isItSigned;
 		const int	_GradeToSignIt;
 		const int	_GradeToExecuteIt;
+		const std::string _target;
 
 	public:
-					Form();
-					Form(std::string name, int gradetosignit, int gradetoexecuteit);
-					Form(int gradetosignit, int gradetoexecuteit);
-					Form(const Form &src);
-					~Form();
+					AForm();
+					AForm(std::string name, int gradetosignit, int gradetoexecuteit);
+					AForm(std::string name, int gradetosignit, int gradetoexecuteit, std::string target);
+					AForm(int gradetosignit, int gradetoexecuteit);
+					AForm(std::string name, int gradetosignit);
+					AForm(int gradetoexecuteit, std::string name);
+					AForm(const AForm &src);
+			virtual ~AForm();
 			const	std::string getName(void) const;
 			int		getGradeToSignIt(void) const;
 			int		getGradeToExecuteIt(void) const;
 			bool	getIsItSigned(void) const;
 			void	beSigned(Bureaucrat bureaucrat);
-			Form&	operator=(const Form& src);
+			const std::string	getTarget(void) const;
+			AForm&	operator=(const AForm& src);
+			virtual	void execute(Bureaucrat const & executor) = 0;
 			class	GradeTooHighException : public std::exception
 			{
 				public:
@@ -51,9 +57,14 @@ class Form
 				public:
 					const std::string msg() const throw();
 			};
+			class	NotSignedException : public std::exception
+			{
+				public:
+					const std::string msg() const throw();
+			};
 };
 
-	std::ostream & operator<<(std::ostream & o, Form const & src);
+	std::ostream & operator<<(std::ostream & o, AForm const & src);
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:52:31 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/22 16:23:08 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:37:01 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,16 @@ bool	Bureaucrat::IsValidGrade(int grade) const
 	return 0;
 }
 
-void	Bureaucrat::signForm(Bureaucrat bureaucrat, Form form)
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	if(form.getIsItSigned() == true && form.getGradeToExecuteIt() <= this->grade)
+	{}	//execute 
+	else
+		throw Bureaucrat::GradeTooLowException();
+
+}
+
+void	Bureaucrat::signForm(Bureaucrat bureaucrat, AForm &form)
 {
 	if(form.getIsItSigned() == true)
 		std::cout << bureaucrat.getName() << " signed " << form.getName() << std::endl;
