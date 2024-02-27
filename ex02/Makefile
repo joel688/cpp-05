@@ -1,4 +1,4 @@
-NAME		=		FormUpMaggots
+NAME		=		NoYouNeedForm28BNot28C
 
 CXX			=		c++
 CXXFLAGS	=		-Wall -Wextra -Werror -std=c++98 -g3
@@ -21,7 +21,7 @@ clean		:
 					rm -rf $(OBJS)
 
 fclean		:		clean
-					rm -rf $(NAME)
+					rm -rf $(NAME) *.txt
 
 re			:		fclean all
 
