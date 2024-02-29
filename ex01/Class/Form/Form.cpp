@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:39 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/22 15:40:27 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:01:31 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@ Form::Form() : _name("Undefined name"), _GradeToSignIt(LOWEST), _GradeToExecuteI
 Form::Form(std::string name, int gradetosignit, int gradetoexecuteit) : _name(name), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit)
 {
 	_isItSigned = false;
+	IsValidGrade(this->_GradeToSignIt);
+	IsValidGrade(this->_GradeToExecuteIt);
 	return;
 }
 
 Form::Form(int gradetosignit, int gradetoexecuteit) : _name("Undefined name"), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit)
 {
 	_isItSigned = false;
+	IsValidGrade(this->_GradeToSignIt);
+	IsValidGrade(this->_GradeToExecuteIt);
 	return;
 }
 
@@ -83,6 +87,17 @@ Form& Form::operator=(const Form& src)
 	return *this;
 }
 // ----------Members_Functions----------
+
+bool 	Form::IsValidGrade(int grade) const
+{
+	if(grade >= HIGHEST && grade <= LOWEST)
+		return 1;
+	else if (grade < HIGHEST)
+		throw Form::GradeTooHighException();
+	else if (grade > LOWEST)
+		throw Form::GradeTooLowException();
+	return 0;
+}
 
 void	Form::beSigned(Bureaucrat bureaucrat)
 {

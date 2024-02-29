@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/29 17:07:45 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:42:26 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "Class/Intern/Intern.hpp"
 
 
-//Tu dois secure si ya pas de makeForm si il return null bah le reste ne sexecute pas 
+//Tu dois secure si ya pas de makeForm si il return null bah le reste ne sexecute pas et destroye les new
 
 
 

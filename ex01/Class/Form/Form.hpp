@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:53 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/22 15:23:45 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:50:46 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class Form
 			bool	getIsItSigned(void) const;
 			void	beSigned(Bureaucrat bureaucrat);
 			Form&	operator=(const Form& src);
+			bool 	IsValidGrade(int grade) const;
 			class	GradeTooHighException : public std::exception
 			{
 				public:
