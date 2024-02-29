@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:39 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 17:53:53 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:19:21 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ AForm::AForm(int gradetosignit, int gradetoexecuteit) : _name("Undefined name"),
 	return;
 }
 
-AForm::AForm(const AForm &src) : _name(src._name), _isItSigned(src._isItSigned), _GradeToSignIt(src._GradeToSignIt), _GradeToExecuteIt(src._GradeToExecuteIt)
+AForm::AForm(const AForm &src) : _name(src._name), _isItSigned(src._isItSigned), _GradeToSignIt(src._GradeToSignIt), _GradeToExecuteIt(src._GradeToExecuteIt), _target(src._target)
 {
 	return;
 }

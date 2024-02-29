@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:42:38 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 17:07:36 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:08:32 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRe
 {
 	return;
 }
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : AForm(src)
+{
+	return;
+}
+
 // ----------Deconstructors----------
 
 RobotomyRequestForm::~RobotomyRequestForm()

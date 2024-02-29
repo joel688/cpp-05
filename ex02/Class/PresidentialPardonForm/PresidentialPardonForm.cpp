@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 17:23:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 16:33:03 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:03:06 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 	return;
 }
 
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) : AForm(src)
+{	
+	return;
+}
 // ----------Deconstructors----------
 
 PresidentialPardonForm::~PresidentialPardonForm()

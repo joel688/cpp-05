@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:29:26 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 17:54:35 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:10:14 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubb
 	return;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src)
+{
+	return;
+}
 // ----------Deconstructors----------
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

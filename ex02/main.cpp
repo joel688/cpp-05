@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 17:55:47 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:14:40 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int main()
 	try
 	{
 		Bureaucrat a("Patrick Bateman", 2);
-		PresidentialPardonForm p("Jaquie");
+		PresidentialPardonForm r("Jaquie");
+		PresidentialPardonForm p(r);
+		
 		std::cout << a;
 		a.IncreaseGrade();
 		p.beSigned(a);
