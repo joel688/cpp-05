@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/22 14:45:38 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:48:41 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int main()
 
 	try
 	{
-		Bureaucrat d(2);
+		Bureaucrat d(1);
 		std::cout << d;
 		d.IncreaseGrade();
 		std::cout << d;
