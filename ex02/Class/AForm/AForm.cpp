@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:39 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/29 11:19:21 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:06:49 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,24 @@ AForm::AForm() : _name("Undefined name"), _GradeToSignIt(LOWEST), _GradeToExecut
 AForm::AForm(std::string name, int gradetosignit, int gradetoexecuteit) : _name(name), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit)
 {
 	_isItSigned = false;
+	IsValidGrade(this->_GradeToSignIt);
+	IsValidGrade(this->_GradeToExecuteIt);
 	return;
 }
 
 AForm::AForm(std::string name, int gradetosignit, int gradetoexecuteit, std::string target) : _name(name), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit), _target(target)
 {
 	_isItSigned = false;
+	IsValidGrade(this->_GradeToSignIt);
+	IsValidGrade(this->_GradeToExecuteIt);
 	return;
 }
 
 AForm::AForm(int gradetosignit, int gradetoexecuteit) : _name("Undefined name"), _GradeToSignIt(gradetosignit), _GradeToExecuteIt(gradetoexecuteit)
 {
 	_isItSigned = false;
+	IsValidGrade(this->_GradeToSignIt);
+	IsValidGrade(this->_GradeToExecuteIt);
 	return;
 }
 
@@ -93,6 +99,17 @@ AForm& AForm::operator=(const AForm& src)
 	return *this;
 }
 // ----------Members_Functions----------
+
+bool 	AForm::IsValidGrade(int grade) const
+{
+	if(grade >= HIGHEST && grade <= LOWEST)
+		return 1;
+	else if (grade < HIGHEST)
+		throw AForm::GradeTooHighException();
+	else if (grade > LOWEST)
+		throw AForm::GradeTooLowException();
+	return 0;
+}
 
 void	AForm::beSigned(Bureaucrat bureaucrat)
 {

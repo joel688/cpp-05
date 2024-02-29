@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:53 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/27 17:53:12 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:04:36 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ class AForm
 			bool	getIsItSigned(void) const;
 			void	beSigned(Bureaucrat bureaucrat);
 			const std::string	getTarget(void) const;
+			bool 	IsValidGrade(int grade) const;
 			AForm&	operator=(const AForm& src);
 			virtual	int execute(Bureaucrat const & executor) const = 0;
 			class	GradeTooHighException : public std::exception
