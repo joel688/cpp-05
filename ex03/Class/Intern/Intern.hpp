@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 10:55:25 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/29 17:04:04 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:51:16 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ class Intern
 		~Intern();
 		AForm *makeForm(std::string formname, std::string target);
 		Intern& operator=(const Intern& src);
+		class NoFormException: public std::exception
+		{
+			public:
+				const std::string msg() const throw();
+		};
 };
 
 #endif

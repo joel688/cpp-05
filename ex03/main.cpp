@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/29 17:42:26 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:55:10 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 
 
 //Tu dois secure si ya pas de makeForm si il return null bah le reste ne sexecute pas et destroye les new
-
-
-
-
-
-
 
 int main()
 {
@@ -54,6 +48,10 @@ int main()
 		std::cerr << e.msg() << std::endl;
 	}
 	catch(AForm::NotRobotomized & e)
+	{
+		std::cerr << e.msg() << std::endl;
+	}
+	catch(Intern::NoFormException & e)
 	{
 		std::cerr << e.msg() << std::endl;
 	}

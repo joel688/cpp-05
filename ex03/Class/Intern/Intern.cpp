@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 11:57:12 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/29 17:04:44 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:57:25 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,13 @@ AForm *Intern::makeForm(std::string name, std::string target)
 	{
 		if(levels[i] == name)
 			return (std::cout << "Intern creates "<< levels[i] << std::endl, formtab[i]);
-		else
-			std::cout << "Form asked to Intern don't exist..." << std::endl;
 	}
-	return(NULL);
+	throw Intern::NoFormException();
 }
 
+const std::string Intern::NoFormException::msg() const throw()
+{
+	return ("The Form you asked doesn't exist");
+}
 // ----------Non_Members_Functions----------
 

@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:17 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/23 16:28:45 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:50:59 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class Bureaucrat
 		{
 			public:
 			const std::string msg() const throw();
-		};
+		};	
 };
 
 		std::ostream & operator<<(std::ostream & o, Bureaucrat const & src);
