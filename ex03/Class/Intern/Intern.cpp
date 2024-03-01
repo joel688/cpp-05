@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 11:57:12 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/01 11:57:25 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:02:00 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ AForm *Intern::makeForm(std::string name, std::string target)
 	AForm *formtab[LEVEL_COUNT] =
 	{
 		new PresidentialPardonForm(target),
-		new ShrubberyCreationForm(target),	
+		new ShrubberyCreationForm(target),
 		new RobotomyRequestForm(target)
 	};
 	std::string levels[LEVEL_COUNT] =

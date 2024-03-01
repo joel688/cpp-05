@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/01 11:55:10 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:09:05 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "Class/Intern/Intern.hpp"
 
 
-//Tu dois secure si ya pas de makeForm si il return null bah le reste ne sexecute pas et destroye les new
+//destroye les new ou alors faire un tab de pointeur sur fonction
 
 int main()
 {

@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:39 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/02/29 11:19:21 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:04:11 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ AForm::AForm(const AForm &src) : _name(src._name), _isItSigned(src._isItSigned),
 
 AForm::~AForm()
 {
+	std::cout << "deletor called\n";
+	delete this;
 	return;
 }
 
