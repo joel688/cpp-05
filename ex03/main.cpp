@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:10 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/01 12:09:05 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:04:42 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int main()
 		a.IncreaseGrade();
 		p->beSigned(a);
 		a.executeForm(*p);
+		delete p;
 	}
 	catch (AForm::GradeTooLowException & e)
 	{
@@ -96,6 +97,7 @@ int main()
 		a.IncreaseGrade();
 		p->beSigned(a);
 		a.executeForm(*p);
+		delete p;
 	}
 	catch (AForm::GradeTooLowException & e)
 	{
@@ -125,6 +127,7 @@ int main()
 		a.IncreaseGrade();
 		p->beSigned(a);
 		a.executeForm(*p);
+		delete p;
 	}
 	catch (AForm::GradeTooLowException & e)
 	{
@@ -143,4 +146,3 @@ int main()
 		std::cerr << e.msg() << std::endl;
 	}
 }
-

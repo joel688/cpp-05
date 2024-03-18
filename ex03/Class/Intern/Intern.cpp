@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 11:57:12 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/01 16:22:57 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:38:50 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,31 @@ Intern& Intern::operator=(const Intern& src)
 		*this = src;
 	return (*this);
 }
+
 // ----------Members_Functions----------
+
+AForm *Intern::makePres(std::string target)
+{
+	return(new PresidentialPardonForm(target));
+}
+
+AForm *Intern::makeShru(std::string target)
+{
+	return(new ShrubberyCreationForm(target));
+}
+
+AForm *Intern::makeRob(std::string target)
+{
+	return(new RobotomyRequestForm(target));
+}
 
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-	AForm *formtab[LEVEL_COUNT] =
+	AForm* (Intern::*formtab[LEVEL_COUNT])(std::string) =
 	{
-		new PresidentialPardonForm(target),
-		new ShrubberyCreationForm(target),
-		new RobotomyRequestForm(target)
+		&Intern::makePres,
+		&Intern::makeShru,
+		&Intern::makeRob
 	};
 	std::string levels[LEVEL_COUNT] =
 	{
@@ -64,7 +80,10 @@ AForm *Intern::makeForm(std::string name, std::string target)
 	for (int i = 0; i < LEVEL_COUNT; i++)
 	{
 		if(levels[i] == name)
-			return (std::cout << "Intern creates "<< levels[i] << std::endl, formtab[i]);
+		{
+			std::cout << "Intern creates "<< levels[i] << std::endl;
+			return ((*this.*formtab[i])(target));
+		}
 	}
 	throw Intern::NoFormException();
 }
@@ -73,5 +92,6 @@ const std::string Intern::NoFormException::msg() const throw()
 {
 	return ("The Form you asked doesn't exist");
 }
+
 // ----------Non_Members_Functions----------
 

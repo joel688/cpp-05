@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:48:39 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/01 16:28:48 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:02:56 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ AForm::AForm(const AForm &src) : _name(src._name), _isItSigned(src._isItSigned),
 AForm::~AForm()
 {
 	std::cout << "deletor called\n";
-	delete this;
 	return;
 }
 
@@ -104,7 +103,9 @@ void	AForm::beSigned(Bureaucrat bureaucrat)
 		bureaucrat.signForm(bureaucrat, *this);
 	}
 	else
+	{
 		throw AForm::GradeTooLowException();
+	}
 	return;
 }
 

@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:42:38 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/01 16:29:31 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:09:02 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ int RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	else if((rand() % 2) == 1)
 		std::cout << "KrrrrrrrrKrrrrrrKrrrrrr" << std::endl << "Informs that " << this->getTarget() << " has been robotomized." << std::endl;
 	else
+	{
+		delete this;
 		throw AForm::NotRobotomized();
+	}
 	return 1;
 }
 
